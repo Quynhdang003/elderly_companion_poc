@@ -2,12 +2,12 @@
 
 ## Mục tiêu
 POC ứng dụng web AI đồng hành cho người cao tuổi, có tính năng trò chuyện
-bằng giọng nói (tiếng Việt) và cảnh báo dấu hiệu lừa đảo.
+bằng giọng nói (tiếng Việt) .
 
 ## Tech Stack
 - Next.js (App Router) + TypeScript + Tailwind CSS
 - Firebase: Authentication (email/password) + Firestore (data storage)
-- Vapi AI: voice assistant, hội thoại tiếng Việt
+- Dograh AI: voice assistant, hội thoại tiếng Việt
 - Google Gemini: xử lý ngôn ngữ / phân tích nội dung
 
 ## Cấu trúc thư mục (giữ nguyên, không tự ý đổi)
@@ -35,7 +35,7 @@ public/                         # tài nguyên tĩnh
 ## Quy ước code
 - Dùng App Router conventions (server components mặc định, "use client"
   chỉ khi cần state/event).
-- Toàn bộ gọi Firebase Admin, Gemini API, Vapi server-side key phải nằm
+- Toàn bộ gọi Firebase Admin, Gemini API, Dograh server-side key phải nằm
   trong Route Handler hoặc Server Action — KHÔNG được lộ ra client bundle.
 - Biến `NEXT_PUBLIC_*` mới được dùng ở client component.
 - Validate form bằng zod + react-hook-form.
@@ -45,8 +45,7 @@ public/                         # tài nguyên tĩnh
 
 ## Biến môi trường (.env)
 ```
-NEXT_PUBLIC_VAPI_WEB_TOKEN=
-NEXT_PUBLIC_VAPI_WORKFLOW_ID=
+NEXT_PUBLIC_DOGRAH_AI_API_KEY=
 GOOGLE_GENERATIVE_AI_API_KEY=
 NEXT_PUBLIC_BASE_URL=
 NEXT_PUBLIC_FIREBASE_API_KEY=
@@ -67,3 +66,13 @@ FIREBASE_PRIVATE_KEY=
   trừ khi được yêu cầu rõ.
 - Nếu cần cấu hình bên ngoài code (vd: Vapi dashboard, Firebase console),
   nêu rõ bước cấu hình đó thay vì cố giả lập bằng code.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

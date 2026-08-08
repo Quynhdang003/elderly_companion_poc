@@ -6,7 +6,7 @@ import {
     FormControl,
     FormMessage,
 } from "@/components/ui/form";
-
+import { Input } from "@/components/ui/input";
 interface FormFieldProps<T extends FieldValues> {
     control: Control<T>;
     name: Path<T>;
@@ -29,12 +29,14 @@ const FormField = <T extends FieldValues>({
             render={({ field }) => (
                 <FormItem>
                     <FormLabel className="label">{label}</FormLabel>
-                    <FormControl
-                        className="input"
-                        type={type}
-                        placeholder={placeholder}
-                        {...field}
-                    />
+                    <FormControl>
+                        <Input
+                            className="input"
+                            type={type}
+                            placeholder={placeholder}
+                            {...field}
+                        />
+                    </FormControl>
                     <FormMessage />
                 </FormItem>
             )}
